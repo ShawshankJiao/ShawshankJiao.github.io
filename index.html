@@ -232,6 +232,371 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/08/原型链，call-apply/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shawhshank">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ShawshankJiao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/08/原型链，call-apply/" itemprop="url">原型链，call/apply</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-08T11:12:08+08:00">
+                2018-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>原型是function对象的一个属性，它定义了构造函数制造出的对象的公共祖先。通过该构造函数产生的对象，可以继承该原型的属性和方法。原型也是对象。<br>Person.prototype   –原型<br>Person.prototype = {}  –祖先<br>Person.prototype.LastName = “Jiao”   –可以给祖先增加属性,是该对象的公有祖先，<br>跟据原型的特点和概念，可以提取原型的共有属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;javascript/text&quot;&gt;</span><br><span class="line">	//大驼峰式命名法</span><br><span class="line">	</span><br><span class="line">	function Person()&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	var person = new Person(); </span><br><span class="line">	var person1 = new Person();</span><br><span class="line">	//person和person1 拥有共同的LastName属性</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Grand.prototype.lastName = &quot;Deng&quot;;</span><br><span class="line">var grand = new Grand();</span><br><span class="line">function Grand()&#123;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">father.prototype = Grand;</span><br><span class="line">var father = new Father();</span><br><span class="line">function Father()&#123;</span><br><span class="line">	this.name = &quot;xuming&quot;;</span><br><span class="line">	this.fortune = &#123;</span><br><span class="line">		card1 : 1000000,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">son.prototype = father;</span><br><span class="line">var son = new Son();</span><br><span class="line">function Son()&#123;</span><br><span class="line">	this.hobbit = &quot;smoke&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Object.create()创造对象的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	lastName : &quot;Jiao&quot;,</span><br><span class="line">	age = 18</span><br><span class="line">&#125;</span><br><span class="line">var obj1 = Object.create(obj);</span><br></pre></td></tr></table></figure></p>
+<p>##call/apply<br>作用:改变this指向</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/08/对象，包装类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shawhshank">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ShawshankJiao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/08/对象，包装类/" itemprop="url">对象，包装类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-08T09:47:50+08:00">
+                2018-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天学习了对象、包装类的内容。<br>构造函数：大驼峰式<br>this：不通过new的话，this指向Window<br>习题1 x,y,z的值分别是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var x = 1, y = z = 0;</span><br><span class="line">	function add(n)&#123;</span><br><span class="line">		return n = n + 1;</span><br><span class="line">	&#125;</span><br><span class="line">	y = add(x);</span><br><span class="line">	function add(n)&#123;</span><br><span class="line">		return n = n + 3;</span><br><span class="line">	&#125;</span><br><span class="line">	z = add(x);</span><br></pre></td></tr></table></figure></p>
+<p>包含预编译的内容  答案是：x = 1, y = 4, z = 4;<br>习题2：下面JavaScript代码段输出值为1,2,3,4,5的选项有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//A</span><br><span class="line">function foo(x)&#123;</span><br><span class="line">	console.log(arguments);</span><br><span class="line">	return x;</span><br><span class="line">&#125;</span><br><span class="line">foo(1,2,3,4,5);</span><br><span class="line">//B</span><br><span class="line">function foo(x)&#123;</span><br><span class="line">	console.log(arguments);</span><br><span class="line">	return x;</span><br><span class="line">&#125;(1,2,3,4,5)</span><br><span class="line">//C</span><br><span class="line">(function foo(x)&#123;</span><br><span class="line">	console.log(arguments);</span><br><span class="line">	return x;</span><br><span class="line">&#125;)(1,2,3,4,5)</span><br></pre></td></tr></table></figure></p>
+<p>习题二解析:<br>A选项正确<br>B选项会分离foo()和(1,2,3,4,5),结果是既不报错也不执行；<br>C选项正确 立即执行函数<br>习题三：<br>写一个方法，求一个字符串字节长度。（提示：字符串有一个方法charCodeAt()；一个中文占两个字节，一个英文占一个字节<br>定义和用法<br>    charCodeAt()方法可返回指定位置的字符的Unicode编码。这个返回值是0-65535之间的整数。（当返回值是&lt;=255时，为英文，当返回值&gt;255时为中文）<br>语法<br>    stringObject.charCodeAt(index)<br>eg:<br>    <script type="javascript/text"><br>        var str = “Hello World!”;<br>        document.write(str.charCodeAt(1));//输出101<br>    </script><br>)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function getStrByte(x)&#123;</span><br><span class="line">	var count = len = x.length;</span><br><span class="line">	for(var i = 0; i &lt; len; i++)&#123;</span><br><span class="line">		if(x.charCodeAt(i) &gt; 255)&#123;</span><br><span class="line">			count ++ ;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/08/闭包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shawhshank">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ShawshankJiao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/08/闭包/" itemprop="url">闭包</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-08T09:32:45+08:00">
+                2018-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/07/练习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -753,7 +1118,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -761,6 +1126,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>

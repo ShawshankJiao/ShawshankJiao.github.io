@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="This is ShawshankJiao&apos;s Blog.">
+<meta name="description" content="原型定义原型是function对象的一个属性，它定义了构造函数制造出的对象的公共祖先。通过该构造函数产生的对象，可以继承该原型的属性和方法。原型也是对象。Person.prototype   –原型Person.prototype = {}  –祖先Person.prototype.LastName = “Jiao”   –可以给祖先增加属性,是该对象的公有祖先，跟据原型的特点和概念，可以提取原型">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Test Again">
-<meta property="og:url" content="http://yoursite.com/2018/08/07/Test-Again/index.html">
+<meta property="og:title" content="原型链，call&#x2F;apply">
+<meta property="og:url" content="http://yoursite.com/2018/08/08/原型链，call-apply/index.html">
 <meta property="og:site_name" content="ShawshankJiao">
-<meta property="og:description" content="This is ShawshankJiao&apos;s Blog.">
+<meta property="og:description" content="原型定义原型是function对象的一个属性，它定义了构造函数制造出的对象的公共祖先。通过该构造函数产生的对象，可以继承该原型的属性和方法。原型也是对象。Person.prototype   –原型Person.prototype = {}  –祖先Person.prototype.LastName = “Jiao”   –可以给祖先增加属性,是该对象的公有祖先，跟据原型的特点和概念，可以提取原型">
 <meta property="og:locale" content="CHN">
-<meta property="og:updated_time" content="2018-08-07T01:11:48.215Z">
+<meta property="og:updated_time" content="2018-08-08T09:04:17.010Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Test Again">
-<meta name="twitter:description" content="This is ShawshankJiao&apos;s Blog.">
+<meta name="twitter:title" content="原型链，call&#x2F;apply">
+<meta name="twitter:description" content="原型定义原型是function对象的一个属性，它定义了构造函数制造出的对象的公共祖先。通过该构造函数产生的对象，可以继承该原型的属性和方法。原型也是对象。Person.prototype   –原型Person.prototype = {}  –祖先Person.prototype.LastName = “Jiao”   –可以给祖先增加属性,是该对象的公有祖先，跟据原型的特点和概念，可以提取原型">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/07/Test-Again/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/08/原型链，call-apply/"/>
 
 
 
 
 
-  <title>Test Again | ShawshankJiao</title>
+  <title>原型链，call/apply | ShawshankJiao</title>
   
 
 
@@ -232,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/07/Test-Again/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/08/原型链，call-apply/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Shawhshank">
@@ -249,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Test Again</h1>
+          <h1 class="post-title" itemprop="name headline">原型链，call/apply</h1>
         
 
         <div class="post-meta">
@@ -261,8 +262,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-07T09:11:48+08:00">
-                2018-08-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-08T11:12:08+08:00">
+                2018-08-08
               </time>
             
 
@@ -299,7 +300,12 @@
       
 
       
-        
+        <h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>原型是function对象的一个属性，它定义了构造函数制造出的对象的公共祖先。通过该构造函数产生的对象，可以继承该原型的属性和方法。原型也是对象。<br>Person.prototype   –原型<br>Person.prototype = {}  –祖先<br>Person.prototype.LastName = “Jiao”   –可以给祖先增加属性,是该对象的公有祖先，<br>跟据原型的特点和概念，可以提取原型的共有属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;javascript/text&quot;&gt;</span><br><span class="line">	//大驼峰式命名法</span><br><span class="line">	</span><br><span class="line">	function Person()&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	var person = new Person(); </span><br><span class="line">	var person1 = new Person();</span><br><span class="line">	//person和person1 拥有共同的LastName属性</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Grand.prototype.lastName = &quot;Deng&quot;;</span><br><span class="line">var grand = new Grand();</span><br><span class="line">function Grand()&#123;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">father.prototype = Grand;</span><br><span class="line">var father = new Father();</span><br><span class="line">function Father()&#123;</span><br><span class="line">	this.name = &quot;xuming&quot;;</span><br><span class="line">	this.fortune = &#123;</span><br><span class="line">		card1 : 1000000,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">son.prototype = father;</span><br><span class="line">var son = new Son();</span><br><span class="line">function Son()&#123;</span><br><span class="line">	this.hobbit = &quot;smoke&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Object.create()创造对象的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	lastName : &quot;Jiao&quot;,</span><br><span class="line">	age = 18</span><br><span class="line">&#125;</span><br><span class="line">var obj1 = Object.create(obj);</span><br></pre></td></tr></table></figure></p>
+<p>##call/apply<br>作用:改变this指向</p>
+
       
     </div>
     
@@ -314,6 +320,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
 
       
       
@@ -323,8 +335,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/06/测试一下/" rel="next" title="测试一下">
-                <i class="fa fa-chevron-left"></i> 测试一下
+              <a href="/2018/08/08/对象，包装类/" rel="next" title="对象，包装类">
+                <i class="fa fa-chevron-left"></i> 对象，包装类
               </a>
             
           </div>
@@ -332,10 +344,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/07/练习/" rel="prev" title="练习">
-                练习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -387,8 +395,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,6 +456,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原型"><span class="nav-number">1.</span> <span class="nav-text">原型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">1.0.1.</span> <span class="nav-text">定义</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链"><span class="nav-number">2.</span> <span class="nav-text">原型链</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
