@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="##继承模式 原型链借用构造函数实现公有变量12345678910111213Father.prototype.lastName = &amp;quot;Jiao&amp;quot;;function Father()&amp;#123;&amp;#125;function Son()&amp;#123;&amp;#125;//Son.prototype = Father.prototype;function inherit(Target,Or">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/08/06/hello-world/index.html">
+<meta property="og:title" content="继承模式">
+<meta property="og:url" content="http://yoursite.com/2018/08/09/继承模式/index.html">
 <meta property="og:site_name" content="ShawshankJiao">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="##继承模式 原型链借用构造函数实现公有变量12345678910111213Father.prototype.lastName = &amp;quot;Jiao&amp;quot;;function Father()&amp;#123;&amp;#125;function Son()&amp;#123;&amp;#125;//Son.prototype = Father.prototype;function inherit(Target,Or">
 <meta property="og:locale" content="CHN">
-<meta property="og:updated_time" content="2017-10-28T00:39:58.000Z">
+<meta property="og:updated_time" content="2018-08-09T13:08:44.010Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="继承模式">
+<meta name="twitter:description" content="##继承模式 原型链借用构造函数实现公有变量12345678910111213Father.prototype.lastName = &amp;quot;Jiao&amp;quot;;function Father()&amp;#123;&amp;#125;function Son()&amp;#123;&amp;#125;//Son.prototype = Father.prototype;function inherit(Target,Or">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/06/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/09/继承模式/"/>
 
 
 
 
 
-  <title>Hello World | ShawshankJiao</title>
+  <title>继承模式 | ShawshankJiao</title>
   
 
 
@@ -232,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/06/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/09/继承模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Shawhshank">
@@ -249,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">继承模式</h1>
         
 
         <div class="post-meta">
@@ -261,8 +262,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-06T15:58:51+08:00">
-                2018-08-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-09T20:15:39+08:00">
+                2018-08-09
               </time>
             
 
@@ -299,15 +300,9 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>##继承模式</p>
+<h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><h4 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h4><h4 id="实现公有变量"><a href="#实现公有变量" class="headerlink" title="实现公有变量"></a>实现公有变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Father.prototype.lastName = &quot;Jiao&quot;;</span><br><span class="line">function Father()&#123;</span><br><span class="line">&#125;</span><br><span class="line">function Son()&#123;</span><br><span class="line">&#125;</span><br><span class="line">//Son.prototype = Father.prototype;</span><br><span class="line">function inherit(Target,Origin)&#123;</span><br><span class="line">	Target.prototype = Origin.prototype;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inherit(Son,Father);</span><br><span class="line">var son = new SOn();</span><br><span class="line">//无法实现私有属性</span><br></pre></td></tr></table></figure>
+<p>####圣杯模式<br>属于实现公有变量的变体，在子类与父类中增加一个构造函数作为中间层<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//形式1</span><br><span class="line">function inherit(Target,Origin)&#123;</span><br><span class="line">	function F()&#123;&#125;</span><br><span class="line">	F.prototype = Origin.prototype;</span><br><span class="line">	Target.prototype = new F();</span><br><span class="line">	Target.prototype.constuctor = Target;//将子类的原型指向自己</span><br><span class="line">	Target.prototype.uber = Origin.prototype;//注明子类的超类</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//形式2</span><br><span class="line">//yahoo中的YUI3库</span><br><span class="line">var inherit = (function()&#123;</span><br><span class="line">	var F = function()&#123;&#125;;//私有化变量，闭包的应用</span><br><span class="line">	return function(Target,Origin)&#123;</span><br><span class="line">		F.prototype = Origin.prototype;</span><br><span class="line">		Target.prototype = new F();</span><br><span class="line">		Target.prototype.constuctor = Target;//将子类的原型指向自己</span><br><span class="line">		Target.prototype.uber = Origin.prototype;//注明子类的超类</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -323,6 +318,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
 
       
       
@@ -332,15 +333,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/08/08/原型链，call-apply/" rel="next" title="原型链，call/apply">
+                <i class="fa fa-chevron-left"></i> 原型链，call/apply
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/06/测试一下/" rel="prev" title="测试一下">
-                测试一下 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -463,7 +464,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#原型链"><span class="nav-number">1.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#借用构造函数"><span class="nav-number">2.</span> <span class="nav-text">借用构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现公有变量"><span class="nav-number">3.</span> <span class="nav-text">实现公有变量</span></a></li></ol></div>
             
 
           </div>

@@ -232,6 +232,128 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/09/继承模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shawhshank">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ShawshankJiao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/09/继承模式/" itemprop="url">继承模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-09T20:15:39+08:00">
+                2018-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##继承模式</p>
+<h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><h4 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h4><h4 id="实现公有变量"><a href="#实现公有变量" class="headerlink" title="实现公有变量"></a>实现公有变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Father.prototype.lastName = &quot;Jiao&quot;;</span><br><span class="line">function Father()&#123;</span><br><span class="line">&#125;</span><br><span class="line">function Son()&#123;</span><br><span class="line">&#125;</span><br><span class="line">//Son.prototype = Father.prototype;</span><br><span class="line">function inherit(Target,Origin)&#123;</span><br><span class="line">	Target.prototype = Origin.prototype;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inherit(Son,Father);</span><br><span class="line">var son = new SOn();</span><br><span class="line">//无法实现私有属性</span><br></pre></td></tr></table></figure>
+<p>####圣杯模式<br>属于实现公有变量的变体，在子类与父类中增加一个构造函数作为中间层<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//形式1</span><br><span class="line">function inherit(Target,Origin)&#123;</span><br><span class="line">	function F()&#123;&#125;</span><br><span class="line">	F.prototype = Origin.prototype;</span><br><span class="line">	Target.prototype = new F();</span><br><span class="line">	Target.prototype.constuctor = Target;//将子类的原型指向自己</span><br><span class="line">	Target.prototype.uber = Origin.prototype;//注明子类的超类</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//形式2</span><br><span class="line">//yahoo中的YUI3库</span><br><span class="line">var inherit = (function()&#123;</span><br><span class="line">	var F = function()&#123;&#125;;//私有化变量，闭包的应用</span><br><span class="line">	return function(Target,Origin)&#123;</span><br><span class="line">		F.prototype = Origin.prototype;</span><br><span class="line">		Target.prototype = new F();</span><br><span class="line">		Target.prototype.constuctor = Target;//将子类的原型指向自己</span><br><span class="line">		Target.prototype.uber = Origin.prototype;//注明子类的超类</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/08/原型链，call-apply/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1118,7 +1240,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
